@@ -1,4 +1,4 @@
-{% set version = '0.1-5' %}
+{% set version = "0.1-7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/SiZer_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/SiZer/SiZer_{{ version }}.tar.gz
-  sha256: d844b947ef2dc77e1b1ea1e6aeb325e478e8a05533e416f172dfa1a27e3eb4d1
+  sha256: 402c409aae93715ec60a5961cb85ed96cf8072c14e8ab2803a11eec4b8521d19
 
 build:
   noarch: generic
   merge_build_host: True  # [win]
-  number: 1001
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
