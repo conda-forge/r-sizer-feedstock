@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: SiZer_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/SiZer_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/SiZer/SiZer_{{ version }}.tar.gz
   sha256: b63d885ae6172bda9de3736dd79bb92aea00e38948c66f67306f750fa3a0d041
 
 build:
-  noarch: generic
-  merge_build_host: true  # [win]
+  merge_build_host: True  # [win]
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -24,12 +23,21 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-boot
+    - r-dplyr
+    - r-ggplot2
+    - r-rlang
+    - r-tidyr
   run:
     - r-base
     - r-boot
+    - r-dplyr
+    - r-ggplot2
+    - r-rlang
+    - r-tidyr
 
 test:
   commands:
@@ -38,10 +46,11 @@ test:
 
 about:
   home: https://github.com/dereksonderegger/SiZer
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Calculates and plots the SiZer map for scatterplot data.  A  SiZer map is a way of examining when the p-th derivative of a  scatterplot-smoother is significantly negative, possibly zero or  significantly positive across a range of smoothing bandwidths.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
