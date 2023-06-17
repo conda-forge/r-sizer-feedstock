@@ -1,11 +1,11 @@
-About r-sizer
-=============
+About r-sizer-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-sizer-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/dereksonderegger/SiZer
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-sizer-feedstock/blob/main/LICENSE.txt)
 
 Summary: Calculates and plots the SiZer map for scatterplot data.  A  SiZer map is a way of examining when the p-th derivative of a  scatterplot-smoother is significantly negative, possibly zero or  significantly positive across a range of smoothing bandwidths.
 
